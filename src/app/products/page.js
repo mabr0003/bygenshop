@@ -2,7 +2,7 @@ import Image from "next/image";
 import ProductCard from "../components/ProductCard";
 
 export default async function Products() {
-  let response = await fetch("https://dummyjson.com/products?limit=0");
+  let response = await fetch("https://dummyjson.com/products");
   let data = await response.json();
   return (
     <div>
