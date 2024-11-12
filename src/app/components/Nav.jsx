@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <header className="relative bg-[#e4e4e4] p-4 z-10">
-      {/* Navbar */}
+      {/* Navbar.*/}
       <nav className="flex justify-between items-center py-6">
         <div className="bg-[#bdddc1] text-white font-bold p-4 rounded-full text-lg">PureShop</div>
         <ul className="hidden md:flex space-x-6">
