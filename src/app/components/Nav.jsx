@@ -30,18 +30,13 @@ export default function Navbar() {
         <div className="bg-[#bdddc1] text-white font-bold p-4 rounded-full text-lg">PureShop</div>
         <ul className="hidden md:flex space-x-6">
           <li>
-            <Link href="#" className="text-white text-lg">
-              1
+            <Link href="/" className="text-white text-lg">
+              Home
             </Link>
           </li>
           <li>
-            <Link href="#" className="text-white text-lg">
-              2
-            </Link>
-          </li>
-          <li>
-            <Link href="#" className="text-white text-lg">
-              3
+            <Link href="/products" className="text-white text-lg">
+              Products
             </Link>
           </li>
         </ul>
@@ -57,18 +52,13 @@ export default function Navbar() {
       <div className={`fixed inset-0 bg-[#e6e6e6] flex justify-center items-center transition-transform transform ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <ul className="text-center space-y-8">
           <li>
-            <Link href="#" className="text-white text-2xl" onClick={toggleMobileMenu}>
-              1
+            <Link href="/" className="text-white text-2xl" onClick={toggleMobileMenu}>
+              Home
             </Link>
           </li>
           <li>
-            <Link href="#" className="text-white text-2xl" onClick={toggleMobileMenu}>
-              2
-            </Link>
-          </li>
-          <li>
-            <Link href="#" className="text-white text-2xl" onClick={toggleMobileMenu}>
-              3
+            <Link href="/products" className="text-white text-2xl" onClick={toggleMobileMenu}>
+              Products
             </Link>
           </li>
         </ul>
