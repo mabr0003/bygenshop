@@ -45,7 +45,7 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        {/* Burger Menu */}
+        {/* Burger Menu.*/}
         <div className="md:hidden flex flex-col cursor-pointer z-20" onClick={toggleMobileMenu}>
           <div className={`w-8 h-1 bg-white my-0.5 transition-transform ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}></div>
           <div className={`w-8 h-1 bg-white my-0.5 transition-opacity ${isMobileMenuOpen ? "opacity-0" : ""}`}></div>
