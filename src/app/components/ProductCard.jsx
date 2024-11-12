@@ -1,10 +1,13 @@
+"use client";
 import Image from "next/image";
-const ProductCard = ({ image, productname, price }) => {
+
+const ProductCard = ({ image, productname, price, setItems, product }) => {
   return (
-    <li>
+    <li className="flex flex-col items-start">
       <Image src={image} alt="image" width={200} height={200} />
       <h2>{productname}</h2>
-      <span>{price}</span>
+      <p>{price}</p>
+      <button onClick={() => setItems(product)}>Add to basket</button>
     </li>
   );
 };
