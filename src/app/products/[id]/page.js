@@ -18,13 +18,5 @@ export default function SingleProduct() {
 
   if (!product) return <div>Loading...</div>;
 
-  return (
-    <div>
-      <h1>{product.title}</h1>
-      <img src={product.thumbnail} alt={product.title} />
-      <p>{product.description}</p>
-      <p>Price: {product.price} DKK</p>
-      {/* Add an "Add to Basket" button here if needed */}
-    </div>
-  );
+  return <div></div>;
 }
