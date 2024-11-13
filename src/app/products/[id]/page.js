@@ -2,6 +2,7 @@
 import useSWR from "swr";
 import { useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -22,6 +23,7 @@ export default function ProductDetail() {
     <div>
       <article>
         <h1>{product.title}</h1>
+        <Image src={product.thumbnail} alt={product.title} width={200} height={200} />
       </article>
     </div>
   );
