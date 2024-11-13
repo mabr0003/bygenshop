@@ -1,22 +1,30 @@
-// pages/product/[id].jsx
 "use client";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
+import { useParams } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
-export default function SingleProduct() {
-  const router = useRouter();
-  const { id } = router.query;
-  const [product, setProduct] = useState(null);
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export default function ProductDetail() {
+  const { id } = useParams();
+
+  const [productId, setProductId] = useState(id);
 
   useEffect(() => {
-    if (id) {
-      fetch(`https://dummyjson.com/products/${id}`)
-        .then((res) => res.json())
-        .then((data) => setProduct(data));
-    }
+    setProductId(id);
   }, [id]);
 
-  if (!product) return <div>Loading...</div>;
+  const { data: product, error } = useSWR(productId ? `https://dummyjson.com/products/${productId}` : null, fetcher);
+  if (error) return <div>Der opstod en fejl...</div>;
+  if (!product) return <div>Indlæser...</div>;
 
-  return <div></div>;
+  return (
+    <div>
+      <article>
+        <h1>{product.title}</h1>
+        <Image src={product.thumbnail} alt={product.title} width={200} height={200} />
+      </article>
+    </div>
+  );
 }
