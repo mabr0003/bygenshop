@@ -1,5 +1,43 @@
-import Image from "next/image";
+"use client";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default function Products() {
-  return <div></div>;
+export default function Payment() {
+  const searchParams = useSearchParams();
+  const itemsParam = searchParams.get("items");
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    if (itemsParam) {
+      // Parse the `itemsParam` to get the list of IDs
+      const ids = itemsParam.split(",").map((id) => parseInt(id));
+
+      // Fetch product data for each ID
+      const fetchProducts = async () => {
+        const productData = await Promise.all(ids.map((id) => fetch(`https://dummyjson.com/products/${id}`).then((res) => res.json())));
+        setProducts(productData);
+      };
+
+      fetchProducts();
+    }
+  }, [itemsParam]);
+
+  // Calculate the total price for all products
+  const totalPrice = products.reduce((total, product) => total + product.price, 0);
+
+  return (
+    <div>
+      <h1>Payment Page</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <img src={product.thumbnail} alt={product.title} width={100} />
+            <h2>{product.title}</h2>
+            <p>Price: {product.price} kr.</p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6 font-bold text-lg">Total Price: {totalPrice} kr.</div>
+    </div>
+  );
 }

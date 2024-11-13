@@ -11,7 +11,7 @@ function Basket({ items, removeFromBasket }) {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            {item.productname} - Quantity: {item.quantity}
+            {item.title} x {item.quantity}
             <button onClick={() => removeFromBasket(item.id)}>Remove</button>
           </li>
         ))}
