@@ -27,7 +27,7 @@ export default function ProductDetail() {
           <Image src={product.thumbnail} alt={product.title} width={400} height={200} className="justify-self-center" />
           <div className="max-w-prose self-center flex flex-col gap-10">
             <h1 className="text-4xl text-text font-bold">{product.title}</h1>
-            <p className="leading-7">{product.description}</p>
+            <p className="font-sans text-p leading-7 font-light">{product.description}</p>
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-10 justify-self-center text-center">

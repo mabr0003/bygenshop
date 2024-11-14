@@ -43,7 +43,7 @@ export default function Products() {
   return (
     <div>
       {/* Filter dropdown */}
-      <div className="my-4">
+      <div className="my-4 p-20">
         <label htmlFor="category-filter" className="mr-2">
           Filter by category:
         </label>
@@ -57,7 +57,7 @@ export default function Products() {
         </select>
       </div>
 
-      <div className="md:grid grid-cols-[4fr_1fr]">
+      <div className="md:grid grid-cols-[4fr_1fr] p-20">
         <ul className="md:grid grid-cols-3 gap-10">
           {filteredProducts.map((product) => (
             <ProductCard image={product.thumbnail} productname={product.title} price={product.price} key={product.id} setItems={addItemToBasket} product={product} />

@@ -10,7 +10,9 @@ const ProductCard = ({ image, productname, price, setItems, product }) => {
         <h2>{productname}</h2>
         <p>{price}</p>
       </Link>
-      <button onClick={() => setItems(product)}>Add to basket</button>
+      <button className="bg-[#7A7A7A] text-white font-light py-2 px-4 rounded hover:bg-[#616161] focus:outline-none focus:ring-2 focus:ring-[#7A7A7A]" onClick={() => setItems(product)}>
+        Add to basket
+      </button>
     </li>
   );
 };
