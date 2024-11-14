@@ -15,7 +15,7 @@ export default function Products() {
       let data = await response.json();
       setProducts(data.products);
 
-      // Extract unique categories
+      // Extract unique categories.
       const uniqueCategories = [...new Set(data.products.map((product) => product.category))];
       setCategories(uniqueCategories);
     };
