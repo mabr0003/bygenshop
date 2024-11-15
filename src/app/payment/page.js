@@ -1,15 +1,16 @@
 "use client";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 
-export default function Payment() {
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState, Suspense } from "react";
+
+function PaymentContent() {
   const searchParams = useSearchParams();
   const itemsParam = searchParams.get("items");
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     if (itemsParam) {
-      const ids = itemsParam.split(",").map((id) => parseInt(id));
+      const ids = itemsParam.split(",").map((id) => parseInt(id, 10));
 
       const fetchProducts = async () => {
         const productData = await Promise.all(ids.map((id) => fetch(`https://dummyjson.com/products/${id}`).then((res) => res.json())));
@@ -36,5 +37,13 @@ export default function Payment() {
       </ul>
       <div className="mt-6 font-bold text-lg">Total Price: {totalPrice} kr.</div>
     </div>
+  );
+}
+
+export default function Payment() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PaymentContent />
+    </Suspense>
   );
 }
