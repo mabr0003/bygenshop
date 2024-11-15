@@ -15,7 +15,6 @@ export default function Products() {
       let data = await response.json();
       setProducts(data.products);
 
-      // Extract unique categories.
       const uniqueCategories = [...new Set(data.products.map((product) => product.category))];
       setCategories(uniqueCategories);
     };
@@ -37,12 +36,10 @@ export default function Products() {
     setItems((prevItems) => prevItems.filter((item) => item.id !== productId));
   };
 
-  // Filter products based on selected category
   const filteredProducts = selectedCategory === "All" ? products : products.filter((product) => product.category === selectedCategory);
 
   return (
     <div>
-      {/* Filter dropdown */}
       <div className="my-4 p-20">
         <label htmlFor="category-filter" className="mr-2">
           Filter by category:
