@@ -24,8 +24,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="relative p-4 z-10 bg-accent">
-      {/* Navbar.*/}
+    <header className="relative bg-[#e4e4e4] p-4 z-10 bg-accent">
       <nav className="flex justify-between items-center py-6">
         <div className="text-white font-bold p-4 rounded-full text-lg">PureShop</div>
         <ul className="hidden md:flex space-x-6">
@@ -40,7 +39,6 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        {/* Burger Menu.*/}
         <div className="md:hidden flex flex-col cursor-pointer z-20" onClick={toggleMobileMenu}>
           <div className={`w-8 h-1 bg-white my-0.5 transition-transform ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}></div>
           <div className={`w-8 h-1 bg-white my-0.5 transition-opacity ${isMobileMenuOpen ? "opacity-0" : ""}`}></div>
@@ -48,8 +46,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      <div className={`fixed inset-0 flex justify-center items-center transition-transform transform ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`fixed inset-0  bg-accent flex justify-center items-center transition-transform transform ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <ul className="text-center space-y-8">
           <li>
             <Link href="/" className="text-white text-2xl" onClick={toggleMobileMenu}>

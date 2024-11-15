@@ -3,7 +3,6 @@ import Link from "next/link";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 
 function Basket({ items, removeFromBasket }) {
-  // Create a query string with only the item IDs
   const itemsQuery = items.map((item) => item.id).join(",");
 
   return (

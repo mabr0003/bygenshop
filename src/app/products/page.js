@@ -57,7 +57,9 @@ export default function Products() {
         </select>
       </div>
 
-      <div className="md:grid grid-cols-[3fr_1fr] p-20">
+      <h1 className="pl-20 pb-4 text-3xl font-black">PRODUCTS</h1>
+      <h2 className="pl-20">Explore our wide selection of premium goods.</h2>
+      <div className="md:grid grid-cols-[4fr_1fr] p-20">
         <ul className="md:grid grid-cols-3 gap-10">
           {filteredProducts.map((product) => (
             <ProductCard image={product.thumbnail} productname={product.title} price={product.price} key={product.id} setItems={addItemToBasket} product={product} />
