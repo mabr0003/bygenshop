@@ -2,7 +2,6 @@
 import Link from "next/link";
 
 function Basket({ items, removeFromBasket }) {
-  // Create a query string with only the item IDs
   const itemsQuery = items.map((item) => item.id).join(",");
 
   return (

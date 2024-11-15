@@ -9,10 +9,8 @@ export default function Payment() {
 
   useEffect(() => {
     if (itemsParam) {
-      // Parse the `itemsParam` to get the list of IDs
       const ids = itemsParam.split(",").map((id) => parseInt(id));
 
-      // Fetch product data for each ID
       const fetchProducts = async () => {
         const productData = await Promise.all(ids.map((id) => fetch(`https://dummyjson.com/products/${id}`).then((res) => res.json())));
         setProducts(productData);
@@ -22,7 +20,6 @@ export default function Payment() {
     }
   }, [itemsParam]);
 
-  // Calculate the total price for all products
   const totalPrice = products.reduce((total, product) => total + product.price, 0);
 
   return (
